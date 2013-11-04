@@ -20,7 +20,7 @@ Copyright 2013 Brett Brotherton http://www.bbrotherton.com
 Description
 ==================
 
-This code in conjunction with [STM32F4DISCOVERY board firmware package] [5]
+This code in conjunction with [STM32F4DISCOVERY board firmware package](http://www.st.com/web/en/catalog/tools/PF257904)
 implements a simple HID keyboard device designed for brute force attacks
 against an Android phone.
 
@@ -33,7 +33,11 @@ November 2013 android does not lock out after a certain number of guesses it jus
 wait 30 seconds after 5 incorrect guesses.  The basic break down of the guessing algorithm is:
 
 1. Make 5 guesses
-2. Send the following sequence "[Window+g] cyouremail@yourdomain.com\t[last guess]\t[last guess]\t\t\n".  
+2. Send the following sequence 
+
+```
+[Window+g] cyouremail@yourdomain.com\t[last guess]\t[last guess]\t\t\n".
+```
 This complicated string attempts to launch gmail and send you an email with the last guess that was made.
 3. Wait 30 seconds and then repeat
 
@@ -103,7 +107,7 @@ Requirements:
 * ST32F4 Discovery Board
 * [STM32F4DISCOVERY board firmware package] [5]
 
-1. Download and extract the [STM32F4DISCOVERY board firmware package] [5]
+1. Download and extract the [STM32F4DISCOVERY board firmware package](http://www.st.com/web/en/catalog/tools/PF257904)
 2. in the same directory where you extracted the firmware package pull this git repo
 3. cd to the git repo
 4. vi Makefile and if necessary modify TOOLS_DIR and STM_ROOTs
@@ -123,19 +127,12 @@ Using
 Software used in this Project
 ==================
 They Modifier keys and conversion from ascii to keycodes came from  the
-[Arduino] [1] library.
+[Arduino](https://github.com/arduino/Arduino) library.
 
-[Liveiu Beraru] [2] had an excellent blog entry on setting up the toolchain
-to a great example makefile in his [Github Project] [3].
+[Liveiu Beraru](http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/) had an excellent blog entry on setting up the toolchain
+to a great example makefile in his [Github Project](https://github.com/Malkavian/tuts/tree/master/stm/blinky).
 
-[ST Micro] [4] had a great software kit that provided all the low level
+[ST Micro](http://www.st.com/web/en/catalog/tools/FM116/SC959/SS1532/PF252419#) had a great software kit that provided all the low level
 drivers and was pretty easy to modify their demo project to get this 
 working.
 
-
-#Links
-  [1]  https://github.com/arduino/Arduino "Arduino"
-  [2]  http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/ "Liviu Beraru"
-  [3]  https://github.com/Malkavian/tuts/tree/master/stm/blinky "Github Project"
-  [4]  http://www.st.com/web/en/catalog/tools/FM116/SC959/SS1532/PF252419# "ST Micro"
-  [5]  http://www.st.com/web/en/catalog/tools/PF257904 "STM32F4DISCOVERY board firmware package"
