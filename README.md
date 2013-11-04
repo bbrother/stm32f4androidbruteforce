@@ -1,5 +1,6 @@
-alarm-notification
+stm32f4androidbruteforce
 ==================
+This code is used to brute force the pin on an android device.
 
 License
 ==================
