@@ -36,15 +36,17 @@
  * 
  * exclusions: a string with digits to exclude from possible permutations
  * 
- * norepeats: if non-zero then any permutation that has a digit repeated
- * will be excluded 
+ * numrepeats: if non-zero then any permutation that has a digit repeated
+ * more than numrepeats times will be skipped
+ * 
+ * onlyrepeats: if non-zero, then numbers that have no repeated digits will be skipped
  * 
  * return: none
  * 
- * example: guess = "00" exclusions = "1234568", norepeats = 1
+ * example: guess = "00" exclusions = "1234568", numrepeats = 1, onlyrepeats = 0
  * will give the follwing sequence after subsequent calls:
  * 00, 07, 09, 70, 79, 00, ....
 */
-void nextPermutation(char *guess, char *exclusions, int norepeats);
+void nextPermutation(char *guess, char *exclusions, int norepeats, int onlyrepeats);
 
 #endif  //PERMUTE_H

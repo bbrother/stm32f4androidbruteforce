@@ -134,7 +134,7 @@ int main(void)
       Delay(200);
       keyboardWrite(KEY_RETURN);
       
-      nextPermutation(guess, "123", 1);
+      nextPermutation(guess, "123", 1, 0);
       
       if ((++guessIdx % 5) == 0) {
         //try to email every 5 guesses

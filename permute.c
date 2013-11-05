@@ -28,7 +28,7 @@
 #include <stdio.h>
 #endif
 
-void nextPermutation(char *guess, char *exclusions, int norepeats) {
+void nextPermutation(char *guess, char *exclusions, int numrepeats, int onlyrepeats) {
   int done = 0;
   int charcnts[10];
   int i;
@@ -62,15 +62,26 @@ void nextPermutation(char *guess, char *exclusions, int norepeats) {
       }
     }
     
-    if (norepeats) {
+    if (numrepeats) {
       for (i = 0; i < 10; i++) {
         charcnts[i] = 0;
       }
-      for (i = 0; i < strlen(guess); i++) {
+      for (i = 0; i < (int)strlen(guess); i++) {
         charcnts[guess[i] - '0']++;
-        if (charcnts[guess[i] - '0'] > 1) {
+        if (charcnts[guess[i] - '0'] > numrepeats) {
           done = 0;
         }
+      }
+    }
+    if (onlyrepeats) {
+      repeat = 0;
+      for (i = 0; i < 10; i++) {
+        if (charcnts[i] > 1) {
+          repeat = 1;
+        }
+      }
+      if (repeat != 1) {
+        done = 0;
       }
     }
   }
@@ -79,10 +90,10 @@ void nextPermutation(char *guess, char *exclusions, int norepeats) {
 #ifdef TESTPERMUTE
 int main(void) {
     char guess[7];
-    strcpy(guess, "400000");
-    while(guess[0] != '0') {
+    strcpy(guess, "40000000");
+    while(guess[0] == '4') {
         printf("%s\n", guess);
-        nextPermutation(guess, "123", 1);
+        nextPermutation(guess, "123", 2, 0);
     }
     /*strcpy(guess, "700000");
     while(guess[0] == '7') {
