@@ -131,12 +131,11 @@ int main(void)
       STM_EVAL_LEDToggle(LED6);
       keyboardPutString(guess);
       keyboardWrite(KEY_RETURN);
-      Delay(200);
-      keyboardWrite(KEY_RETURN);
       
       nextPermutation(guess, "123", 1, 0);
       
       if ((++guessIdx % 5) == 0) {
+        Delay(200);
         //try to email every 5 guesses
         keyboardReleaseAll();
         keyboardPress(KEY_LEFT_GUI);
